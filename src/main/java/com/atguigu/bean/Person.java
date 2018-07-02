@@ -1,8 +1,17 @@
 package com.atguigu.bean;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class Person {
+
+    @Value("张三")
     private String name;
+    
+    @Value("#{20-2}")
     private Integer age;
+    
+     @Value("${person.nickname}")
+    private String nickname;
 
     public Person(String name, Integer age) {
         this.name = name;
@@ -28,9 +37,17 @@ public class Person {
         this.age = age;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     @Override
     public String toString() {
-        return "Person [name=" + name + ", age=" + age + "]";
+        return "Person [name=" + name + ", age=" + age + ", nickname=" + nickname + "]";
     }
 
 }
